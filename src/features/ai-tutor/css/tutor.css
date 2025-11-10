@@ -1,0 +1,12 @@
+.tutor-box { background: rgba(15,23,42,.25); border:1px solid rgba(148,163,184,.08); border-radius:.8rem; color:#e2e8f0; }
+.tutor-head { padding:.6rem .8rem; font-weight:700; border-bottom:1px solid rgba(148,163,184,.08); }
+.tutor-body { padding:.8rem; }
+.tutor-actions { padding:.6rem .8rem; border-top:1px solid rgba(148,163,184,.08); }
+.tutor-btn { background: rgba(59,130,246,.15); border:1px solid rgba(59,130,246,.35); color:#bae6fd; padding:.35rem .6rem; border-radius:.5rem; cursor:pointer; }
+
+.tutor-card { background: rgba(15,23,42,.25); border:1px solid rgba(148,163,184,.08); border-radius:.8rem; padding:.6rem; color:#e2e8f0; }
+.tutor-card-title { font-weight:700; }
+.tutor-card-desc { opacity:.85; font-size:.9rem; }
+.tutor-card-row { display:flex; justify-content:space-between; align-items:center; margin-top:.5rem; }
+.tutor-xp { color:#fde68a; }
+

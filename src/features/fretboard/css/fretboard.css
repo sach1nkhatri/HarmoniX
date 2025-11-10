@@ -1,0 +1,259 @@
+:root {
+    --fb-bg: radial-gradient(circle at top, rgba(15,23,42,.3) 0%, rgba(2,6,23,1) 80%);
+    --fb-border: rgba(148,163,184,.08);
+    --fb-text: #e2e8f0;
+    --fb-muted: #94a3b8;
+
+    --fb-root: #f97316;
+    --fb-degree-2: #38bdf8;
+    --fb-degree-3: #a855f7;
+    --fb-degree-4: #22c55e;
+    --fb-degree-5: #eab308;
+    --fb-degree-6: #f43f5e;
+    --fb-degree-7: #0ea5e9;
+}
+
+/* container */
+.fb-container {
+    background: var(--fb-bg);
+    border: 1px solid var(--fb-border);
+    border-radius: 1rem;
+    padding: 1rem;
+    backdrop-filter: blur(14px);
+    color: var(--fb-text);
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+}
+
+/* top section */
+.fb-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.fb-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.fb-control label {
+    display: block;
+    font-size: .6rem;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    margin-bottom: .25rem;
+    color: var(--fb-muted);
+}
+
+.fb-control select {
+    background: rgba(15,23,42,.25);
+    border: 1px solid rgba(148,163,184,.25);
+    border-radius: .55rem;
+    padding: .25rem .6rem;
+    color: inherit;
+}
+
+/* theory section */
+.fb-theory {
+    background: rgba(15,23,42,.2);
+    border: 1px solid rgba(148,163,184,.08);
+    border-radius: .8rem;
+    padding: .6rem .8rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    align-items: center;
+    min-height: 70px;
+}
+.fb-theory h4 { margin: 0; font-size: .8rem; }
+.fb-sub { margin: 0; font-size: .62rem; color: var(--fb-muted); }
+
+.fb-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+.fb-legend-item {
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+    font-size: .6rem;
+}
+.fb-legend-dot {
+    width: .75rem;
+    height: .75rem;
+    border-radius: 50%;
+}
+
+.fb-player { display: flex; align-items: center; gap: .75rem; margin-left: auto; }
+.fb-player-controls { display: flex; gap: .5rem; }
+.fb-btn { background: rgba(255,255,255,.1); color: #e2e8f0; border: 1px solid rgba(148,163,184,.25); padding: .35rem .6rem; border-radius: .5rem; cursor: pointer; }
+.fb-btn.ghost { background: transparent; }
+.fb-btn:disabled { opacity: .6; cursor: not-allowed; }
+.fb-player-bpm { display: flex; align-items: center; gap: .4rem; font-size: .7rem; color: var(--fb-muted); }
+
+/* fret numbers */
+.fb-fret-numbers {
+    display: grid;
+    grid-template-columns: 50px repeat(25, 50px);
+    gap: 4px;
+    user-select: none;
+}
+.fb-fret-number {
+    text-align: center;
+    font-size: .6rem;
+    color: var(--fb-muted);
+}
+
+/* main board */
+.fb-board {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* string rows fixed size */
+.fb-string-row {
+    display: grid;
+    grid-template-columns: 50px repeat(25, 50px);
+    gap: 4px;
+    align-items: center;
+    height: 48px;
+    min-height: 48px;
+    max-height: 48px;
+}
+.fb-string-label {
+    text-align: center;
+    font-weight: 500;
+    color: var(--fb-muted);
+    line-height: 1;
+}
+
+/* frets locked */
+.fb-fret {
+    position: relative;
+    background: linear-gradient(180deg, rgba(15,23,42,.1) 0%, rgba(15,23,42,.45) 100%);
+    border: 1px solid rgba(148,163,184,.05);
+    border-radius: .65rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 46px;
+    overflow: hidden;
+}
+.fb-fret.fb-pos {
+    outline: 1px solid rgba(255,255,255,0.05);
+    background: radial-gradient(circle, rgba(59,130,246,.08) 0%, rgba(15,23,42,0) 70%);
+}
+
+/* note - fixed and isolated layout */
+.fb-note {
+    position: relative;
+    width: 38px;
+    height: 34px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .75rem;
+    font-size: .65rem;
+    font-weight: 600;
+    color: #020617;
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+    /* remove aggressive compositing hints to avoid hover jitter */
+}
+.fb-note.in-scale { background: rgba(255,255,255,.9); }
+.fb-note.is-root {
+    outline: 2px solid rgba(255,255,255,.7);
+    box-shadow: 0 0 8px rgba(249,115,22,.5);
+}
+
+/* fixed degree label */
+.fb-note-degree {
+    position: absolute;
+    bottom: 2px;
+    right: 4px;
+    font-size: .5rem;
+    background: rgba(255,255,255,.4);
+    border-radius: 999px;
+    padding: 1px 4px;
+    pointer-events: none;
+    line-height: 1;
+}
+.fb-note.is-root .fb-note-degree {
+    background: rgba(2,6,23,.3);
+    color: #fff;
+    font-weight: 700;
+}
+
+/* markers */
+.fb-marker {
+    position: absolute;
+    bottom: 4px;
+    width: 9px;
+    height: 9px;
+    background: rgba(148,163,184,.35);
+    border-radius: 50%;
+}
+.fb-marker.double {
+    background: transparent;
+    display: flex;
+    gap: 5px;
+}
+.fb-marker.double::before,
+.fb-marker.double::after {
+    content: "";
+    width: 9px;
+    height: 9px;
+    background: rgba(148,163,184,.35);
+    border-radius: 50%;
+}
+
+/* tooltip - isolated layer */
+.fb-tooltip {
+    position: fixed;
+    background: rgba(15,23,42,.95);
+    border: 1px solid rgba(148,163,184,.25);
+    padding: 4px 8px;
+    border-radius: .45rem;
+    font-size: .55rem;
+    z-index: 9999;
+    pointer-events: none;
+    color: #e2e8f0;
+    transform: translateZ(0);
+}
+.fb-tooltip-note { font-weight: 600; }
+.fb-tooltip-sub { color: #94a3b8; }
+
+/* AI prompt banner */
+.fb-prompt { display:flex; gap:.6rem; align-items:center; background: rgba(234,179,8,.06); border: 1px solid rgba(234,179,8,.25); color:#fde68a; padding:.4rem .6rem; border-radius:.6rem; margin-bottom:.5rem; cursor:pointer; user-select:none; }
+.fb-prompt .label { font-size:.6rem; opacity:.8; text-transform:uppercase; }
+.fb-prompt .text { font-size:.75rem; }
+
+/* CAGED overlay toolbar */
+.caged-overlay { margin-top:.5rem; display:flex; align-items:center; justify-content:space-between; }
+.caged-toolbar { display:flex; align-items:center; gap:.5rem; font-size:.8rem; color:#e2e8f0; }
+.caged-ranges { display:flex; gap:.35rem; flex-wrap:wrap; }
+.caged-chip { font-size:.65rem; color:#e2e8f0; background: rgba(59,130,246,.15); border:1px solid rgba(59,130,246,.35); border-radius:999px; padding:.15rem .45rem; }
+
+/* responsive */
+@media (max-width: 900px) {
+    .fb-fret-number { font-size: .55rem; }
+    .fb-string-row,
+    .fb-fret-numbers {
+        grid-template-columns: 42px repeat(25, 42px);
+    }
+    .fb-note {
+        width: 34px;
+        height: 30px;
+    }
+}

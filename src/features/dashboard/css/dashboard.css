@@ -1,0 +1,43 @@
+/* HarmoniX dashboard layout */
+.dashboard-shell {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 1rem;
+}
+.dash-sidebar {
+    background: rgba(15,23,42,.25);
+    border: 1px solid rgba(148,163,184,.08);
+    border-radius: 0.8rem;
+    padding: 1rem;
+    color: #e2e8f0;
+}
+.dash-links { list-style: none; padding: 0; margin: .5rem 0 0; }
+.dash-links li { padding: .35rem 0; opacity: .85; }
+.dash-main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.dash-hero {
+    background: linear-gradient(135deg, rgba(30,58,138,.5), rgba(8,47,73,.35));
+    border: 1px solid rgba(148,163,184,.12);
+    border-radius: 1rem;
+    padding: 1rem;
+    color: #e2e8f0;
+}
+.dash-hero-title { font-size: 1.25rem; font-weight: 700; }
+.dash-hero-sub { opacity: .8; }
+.dash-widgets {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+    align-items: start;
+}
+.dash-card {
+    background: rgba(15,23,42,.25);
+    border: 1px solid rgba(148,163,184,.08);
+    border-radius: 1rem;
+    padding: .75rem;
+    color: #e2e8f0;
+}
+
