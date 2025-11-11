@@ -1,4 +1,36 @@
 /* Ad Popup Styles - Isolated with ad-popup- prefix */
+.ad-toggle-btn {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 48px;
+    height: 48px;
+    background: rgba(15,23,42,.8);
+    border: 2px solid rgba(148,163,184,.3);
+    border-radius: 50%;
+    color: #e2e8f0;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
+}
+
+.ad-toggle-btn:hover {
+    background: rgba(15,23,42,.95);
+    border-color: rgba(249,115,22,.5);
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.ad-toggle-btn:active {
+    transform: scale(0.95);
+}
+
 .ad-popup-overlay {
     position: fixed;
     top: 0;

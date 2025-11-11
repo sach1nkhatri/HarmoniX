@@ -13,6 +13,11 @@ const TIMER_DURATION = 20; // 20 seconds
 const CLICK_THRESHOLD = 20; // Number of clicks to trigger popup
 
 export default function AdPopup() {
+    // Load ad enabled state from localStorage, default to true
+    const [adEnabled, setAdEnabled] = useState(() => {
+        const saved = localStorage.getItem('harmonix_ad_enabled');
+        return saved !== null ? saved === 'true' : true;
+    });
     const [isVisible, setIsVisible] = useState(false);
     const [currentAdIndex, setCurrentAdIndex] = useState(0);
     const [timer, setTimer] = useState(TIMER_DURATION);
@@ -24,6 +29,11 @@ export default function AdPopup() {
     const adIntervalRef = useRef(null);
     const clickCountRef = useRef(0);
     const isVisibleRef = useRef(false);
+
+    // Save ad enabled state to localStorage when it changes
+    useEffect(() => {
+        localStorage.setItem('harmonix_ad_enabled', adEnabled.toString());
+    }, [adEnabled]);
 
     // Update ref when isVisible changes
     useEffect(() => {
@@ -41,8 +51,10 @@ export default function AdPopup() {
         setClickCount(0);
     }, []);
 
-    // Track clicks on the document
+    // Track clicks on the document (only if ads are enabled)
     useEffect(() => {
+        if (!adEnabled) return;
+
         const handleClick = (e) => {
             // Don't count clicks on the popup itself or buttons
             if (e.target.closest('.ad-popup-overlay') || 
@@ -68,10 +80,19 @@ export default function AdPopup() {
         return () => {
             document.removeEventListener('click', handleClick);
         };
-    }, [showPopup]);
+    }, [showPopup, adEnabled]);
 
-    // Set up time-based popup trigger
+    // Set up time-based popup trigger (only if ads are enabled)
     useEffect(() => {
+        if (!adEnabled) {
+            // Clear any existing timeout if ads are disabled
+            if (adIntervalRef.current) {
+                clearTimeout(adIntervalRef.current);
+                adIntervalRef.current = null;
+            }
+            return;
+        }
+
         // Clear any existing timeout
         if (adIntervalRef.current) {
             clearTimeout(adIntervalRef.current);
@@ -80,7 +101,7 @@ export default function AdPopup() {
         // Show first ad after 5 minutes (only if not already visible)
         if (!isVisible) {
             adIntervalRef.current = setTimeout(() => {
-                if (!isVisibleRef.current) {
+                if (!isVisibleRef.current && adEnabled) {
                     showPopup();
                 }
             }, AD_INTERVAL);
@@ -91,7 +112,7 @@ export default function AdPopup() {
             if (intervalRef.current) clearInterval(intervalRef.current);
             if (timerRef.current) clearInterval(timerRef.current);
         };
-    }, [isVisible, showPopup]);
+    }, [isVisible, showPopup, adEnabled]);
 
     useEffect(() => {
         if (isVisible) {
@@ -178,13 +199,66 @@ export default function AdPopup() {
         window.open(ADS[currentAdIndex].url, "_blank");
     };
 
-    if (!isVisible) return null;
+    const toggleAdEnabled = () => {
+        setAdEnabled(prev => !prev);
+        // If disabling, close any open popup
+        if (adEnabled && isVisible) {
+            setIsVisible(false);
+            setCloseAttempts(0);
+            setCanClose(false);
+            setTimer(TIMER_DURATION);
+            clickCountRef.current = 0;
+            setClickCount(0);
+        }
+    };
+
+    // Don't render popup if ads are disabled
+    if (!adEnabled && !isVisible) {
+        return (
+            <button
+                type="button"
+                className="ad-toggle-btn"
+                onClick={toggleAdEnabled}
+                title={adEnabled ? "Disable Ads" : "Enable Ads"}
+                aria-label={adEnabled ? "Disable Ads" : "Enable Ads"}
+            >
+                {adEnabled ? "🔔" : "🔕"}
+            </button>
+        );
+    }
+
+    if (!isVisible) {
+        return (
+            <>
+                <button
+                    type="button"
+                    className="ad-toggle-btn"
+                    onClick={toggleAdEnabled}
+                    title={adEnabled ? "Disable Ads" : "Enable Ads"}
+                    aria-label={adEnabled ? "Disable Ads" : "Enable Ads"}
+                >
+                    {adEnabled ? "🔔" : "🔕"}
+                </button>
+            </>
+        );
+    }
 
     const currentAd = ADS[currentAdIndex];
 
     return (
-        <div className="ad-popup-overlay">
-            <div className="ad-popup-container">
+        <>
+            {/* Ad Toggle Button - Fixed position */}
+            <button
+                type="button"
+                className="ad-toggle-btn"
+                onClick={toggleAdEnabled}
+                title={adEnabled ? "Disable Ads" : "Enable Ads"}
+                aria-label={adEnabled ? "Disable Ads" : "Enable Ads"}
+            >
+                {adEnabled ? "🔔" : "🔕"}
+            </button>
+            <div className="ad-popup-overlay">
+                <div className="ad-popup-container">
                 <div className="ad-popup-header" onClick={(e) => e.stopPropagation()}>
                     {canClose && (
                         <button
@@ -222,6 +296,7 @@ export default function AdPopup() {
                 </div>
             </div>
         </div>
+        </>
     );
 }
 
