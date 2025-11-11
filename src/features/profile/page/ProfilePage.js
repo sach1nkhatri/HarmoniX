@@ -1,0 +1,53 @@
+import React from "react";
+import "../css/profile.css";
+
+export default function ProfilePage() {
+    return (
+        <div className="profile-page">
+            <div className="profile-hero">
+                <h1>Profile</h1>
+                <p className="profile-subtitle">Manage your account and track your progress</p>
+            </div>
+            <div className="profile-content">
+                <div className="profile-card">
+                    <h2>Statistics</h2>
+                    <div className="profile-stats">
+                        <div className="profile-stat-item">
+                            <div className="profile-stat-label">Total XP</div>
+                            <div className="profile-stat-value">0</div>
+                        </div>
+                        <div className="profile-stat-item">
+                            <div className="profile-stat-label">Current Streak</div>
+                            <div className="profile-stat-value">0 days</div>
+                        </div>
+                        <div className="profile-stat-item">
+                            <div className="profile-stat-label">Lessons Completed</div>
+                            <div className="profile-stat-value">0</div>
+                        </div>
+                    </div>
+                </div>
+                <div className="profile-card">
+                    <h2>Account Settings</h2>
+                    <div className="profile-settings">
+                        <div className="profile-setting-item">
+                            <label>Display Name</label>
+                            <input type="text" placeholder="Enter your name" />
+                        </div>
+                        <div className="profile-setting-item">
+                            <label>Email</label>
+                            <input type="email" placeholder="your.email@example.com" />
+                        </div>
+                        <button className="profile-save-btn">Save Changes</button>
+                    </div>
+                </div>
+                <div className="profile-card">
+                    <h2>Progress</h2>
+                    <div className="profile-progress">
+                        <p className="profile-progress-text">Your learning journey starts here. Complete lessons to see your progress!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
+

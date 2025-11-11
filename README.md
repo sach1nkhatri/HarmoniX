@@ -1,0 +1,269 @@
+🎸 HarmoniX Academy
+Master the Neck, Master the Music
+
+A next-generation, interactive guitar learning platform built for musicians, educators, and students to visualize, hear, and master music theory directly on a virtual fretboard.
+
+Combines scales, modes, the CAGED system, audio playback, AI-guided prompts, and real-time pitch detection — all wrapped in a beautiful glassy UI.
+
+🚀 Overview
+
+HarmoniX Academy transforms traditional guitar learning into a digital experience.
+Explore scales, visualize intervals, train your ear, and interact with theory like never before.
+
+Key highlights:
+
+🎵 Interactive Fretboard — 6 strings × 24 frets with real-time note highlighting
+
+🔊 Scale Player — Hear scales ascending/descending using Tone.js
+
+🧠 Theory Assistant — Explore formulas, chord relationships, and intervals
+
+🎸 CAGED System Visualization — See all 5 movable patterns dynamically
+
+🪗 AI Tutor Mode — Follow guided prompts and challenges to learn theory interactively
+
+🎚️ Metronome + Tuner — Practice in rhythm and tune your guitar live
+
+📈 Progress Tracking — XP, streaks, and lessons saved via backend
+
+💎 Glassy Modern UI — Smooth transitions, color-coded degrees, and vibrant themes
+
+🧩 Tech Stack
+Layer	Technologies
+🎨 Frontend	React.js, React Router, Tone.js, Tonal.js, TailwindCSS / Custom CSS, Framer Motion
+⚙️ Backend	Node.js, Express.js, MongoDB, Mongoose
+🔊 Audio & Theory	Web Audio API, Tone.js, @tonaljs/tonal
+🔐 Auth & Data	JWT, bcrypt, MongoDB Atlas
+🧠 AI Prompt Engine	Custom logic engine for guided lessons
+🧭 State Management	React Context / Hooks
+📦 Deployment	Vercel (Frontend), Render / Railway (Backend)
+🗂️ Folder Structure
+src/
+├── App.js
+├── App.css
+├── features/
+│   ├── auth/
+│   │   ├── page/
+│   │   │   ├── LoginPage.jsx
+│   │   │   ├── SignupPage.jsx
+│   ├── dashboard/
+│   │   ├── page/
+│   │   │   ├── DashboardPage.jsx
+│   ├── fretboard/
+│   │   ├── component/
+│   │   │   ├── Fretboard.jsx
+│   │   │   ├── TheorySidebar.jsx
+│   │   │   ├── ScalePlayer.jsx
+│   │   │   ├── CagedOverlay.jsx
+│   │   │   ├── PromptBanner.jsx
+│   │   ├── css/
+│   │   │   ├── fretboard.css
+│   │   │   ├── sidebar.css
+│   │   ├── hooks/
+│   │   │   ├── useScalePlayer.js
+│   │   │   ├── useCagedShapes.js
+│   │   │   ├── usePrompts.js
+│   │   └── data/
+│   │       ├── scaleData.js
+│   │       ├── cagedData.js
+│   │       ├── intervalInfo.js
+│   ├── tuner/
+│   │   ├── page/
+│   │   │   ├── TunerPage.jsx
+│   │   ├── hooks/
+│   │   │   ├── useTuner.js
+│   │   ├── css/
+│   │   │   ├── tuner.css
+│   ├── metronome/
+│   │   ├── component/
+│   │   │   ├── Metronome.jsx
+│   │   ├── css/
+│   │   │   ├── metronome.css
+│   ├── ai-tutor/
+│   │   ├── component/
+│   │   │   ├── PromptEngine.jsx
+│   │   │   ├── LessonCard.jsx
+│   │   ├── data/
+│   │   │   ├── promptData.js
+│   │   ├── css/
+│   │   │   ├── tutor.css
+├── backend/
+│   ├── server.js
+│   ├── routes/
+│   ├── models/
+│   ├── controllers/
+│   ├── config/
+
+💻 Setup & Installation
+🧱 Prerequisites
+
+Make sure you have:
+
+Node.js ≥ 18
+
+MongoDB Atlas / local instance
+
+npm / yarn
+
+⚙️ Clone and Install
+git clone https://github.com/yourusername/harmonix-academy.git
+cd harmonix-academy
+npm install
+cd backend && npm install
+
+🔧 Environment Variables
+
+Create .env in /backend:
+
+MONGODB_URI=your_mongo_connection_string
+JWT_SECRET=your_secret
+PORT=5000
+
+🚀 Run the app
+# Start backend
+cd backend
+npm run dev
+
+# Start frontend
+cd ..
+npm start
+
+
+App runs at 👉 http://localhost:3000
+
+🎶 Core Features Breakdown
+🎸 Fretboard
+
+Select root & scale
+
+Dynamic degree highlighting
+
+Click → Hear note (Tone.js)
+
+Hover → Interval tooltip
+
+Positions 1–5 toggle
+
+Optional CAGED overlays
+
+🧠 Theory Sidebar
+
+Displays scale info, intervals, and chord relations
+
+Explains mood of each mode
+
+Offers quick access to related scales
+
+🔊 Scale Player
+
+Sequential playback (ascending/descending)
+
+Adjustable tempo (BPM)
+
+Loop playback option
+
+🎓 AI Tutor Mode
+
+Gamified learning system
+
+Challenges like “Find all G notes” or “Identify the 5th degree”
+
+Awards XP & lesson completion
+
+🎧 Tuner
+
+Uses getUserMedia for live input
+
+Shows note name, frequency, and pitch deviation
+
+🕒 Metronome
+
+Tap tempo or manual BPM
+
+Visual + sound click
+
+Customizable accent beat
+
+🪶 CAGED Mode
+
+Overlay all 5 major/minor shapes
+
+Visual guide for pattern memorization
+
+Each position linked to practice exercises
+
+🌈 UI Design
+
+Modern glassy UI
+
+Adaptive to light/dark theme (Amp Mode)
+
+Fretboard with vivid color-coded scale degrees
+
+Smooth transitions using Framer Motion
+
+🧩 Future Roadmap
+
+✅ v1 – Fretboard, Scales, Theory, Tuner
+🔄 v2 – Lesson Engine + User Profiles
+🎧 v3 – Ear Training Mode + Sound Recognition
+🎸 v4 – Backing Track Player
+🧠 v5 – AI-powered practice coach
+📱 v6 – Mobile PWA version
+
+🧑‍🎓 Target Users
+
+Beginner guitarists learning scales
+
+Intermediate players mastering the neck
+
+Music teachers who want visual tools
+
+Advanced users exploring modes & improvisation
+
+🏷️ Brand Identity
+
+App Name: HarmoniX Academy
+Tagline: “Master the neck, master the music.”
+Theme: Neo-Glassy Tech / Modern Learning Studio
+Accent Colors: Orange (#f97316) & Indigo (#4f46e5)
+
+🤝 Contributing
+
+Pull requests are welcome!
+If you’d like to contribute lessons or improve the theory engine:
+
+Fork the repo
+
+Create your branch (feature/new-lesson)
+
+Commit changes
+
+Open a PR 🎸
+
+📜 License
+
+MIT License © 2025 — Built for musicians by musicians 🎶
+
+⚡ Acknowledgments
+
+Tonal.js
+ for scale & interval magic
+
+Tone.js
+ for sound synthesis
+
+React
+ for the modular architecture
+
+You — the learner, dreamer, and guitarist 🧡
+
+🖼️ Preview (Optional section)
+
+(Add screenshots here when ready)
+
+🎸 Dashboard → Interactive Fretboard → Theory Overlay → Scale Player
+
+🧩 “HarmoniX Academy” — where code meets creativity,
+
+music meets interactivity, and you become your own teacher. 🎶

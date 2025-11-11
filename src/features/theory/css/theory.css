@@ -1,0 +1,255 @@
+/* Theory Page Styles - Isolated with theory- prefix */
+.theory-page {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    padding: 1rem;
+    color: #e2e8f0;
+}
+
+.theory-hero {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.theory-hero h1 {
+    margin: 0 0 0.5rem 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #e2e8f0;
+    background: linear-gradient(135deg, #f59e0b, #ea580c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.theory-subtitle {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #94a3b8;
+    opacity: 0.9;
+}
+
+.theory-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.theory-section {
+    margin-bottom: 3rem;
+}
+
+.theory-section h2 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #e2e8f0;
+    border-bottom: 2px solid rgba(249,115,22,.3);
+    padding-bottom: 0.5rem;
+}
+
+.theory-desc {
+    margin: 0 0 1.5rem 0;
+    font-size: 1rem;
+    color: #94a3b8;
+    line-height: 1.6;
+}
+
+.theory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.theory-card {
+    background: rgba(15,23,42,.25);
+    border: 1px solid rgba(148,163,184,.08);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    color: #e2e8f0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.theory-card-wide {
+    grid-column: 1 / -1;
+}
+
+.theory-card h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #f59e0b;
+}
+
+.theory-card p {
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #e2e8f0;
+}
+
+.theory-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.theory-list li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #e2e8f0;
+}
+
+.theory-list li strong {
+    color: #f59e0b;
+    font-weight: 600;
+}
+
+.chord-progression {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.chord-item {
+    background: rgba(2,6,23,.25);
+    border: 1px solid rgba(148,163,184,.08);
+    border-radius: 0.8rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+.chord-roman {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #f59e0b;
+    margin-bottom: 0.5rem;
+}
+
+.chord-name {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    margin-bottom: 0.25rem;
+}
+
+.chord-example {
+    font-size: 0.9rem;
+    color: #e2e8f0;
+    font-weight: 600;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 900px) {
+    .theory-page {
+        padding: 0.8rem;
+    }
+
+    .theory-hero h1 {
+        font-size: 2rem;
+    }
+
+    .theory-subtitle {
+        font-size: 1rem;
+    }
+
+    .theory-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .theory-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .theory-card {
+        padding: 1.25rem;
+    }
+
+    .chord-progression {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .theory-page {
+        padding: 0.6rem;
+    }
+
+    .theory-hero {
+        margin-bottom: 1.5rem;
+    }
+
+    .theory-hero h1 {
+        font-size: 1.75rem;
+    }
+
+    .theory-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .theory-section {
+        margin-bottom: 2rem;
+    }
+
+    .theory-section h2 {
+        font-size: 1.25rem;
+    }
+
+    .theory-desc {
+        font-size: 0.9rem;
+    }
+
+    .theory-grid {
+        gap: 1rem;
+    }
+
+    .theory-card {
+        padding: 1rem;
+        border-radius: 0.8rem;
+    }
+
+    .theory-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .theory-card p,
+    .theory-list li {
+        font-size: 0.85rem;
+    }
+
+    .chord-progression {
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+        gap: 0.75rem;
+    }
+
+    .chord-item {
+        padding: 0.8rem;
+    }
+
+    .chord-roman {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .theory-hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .theory-card {
+        padding: 0.8rem;
+    }
+
+    .chord-progression {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+

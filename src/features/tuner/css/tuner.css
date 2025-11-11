@@ -1,0 +1,39 @@
+/* Tuner Styles - Isolated with tuner- prefix */
+.tuner-page {
+    color: #e2e8f0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    padding: 1rem;
+}
+
+.tuner-page h2 {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 640px) {
+    .tuner-page {
+        padding: 0.8rem;
+    }
+
+    .tuner-page h2 {
+        font-size: 1.25rem;
+        margin-bottom: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .tuner-page {
+        padding: 0.6rem;
+    }
+
+    .tuner-page h2 {
+        font-size: 1.1rem;
+        margin-bottom: 0.6rem;
+    }
+}
+

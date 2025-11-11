@@ -1,0 +1,178 @@
+/* Theory Sidebar Styles - Isolated with fb-sidebar- prefix */
+.fb-page {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 1rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.fb-page-main {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.fb-page-sidebar {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.fb-sidebar {
+    background: rgba(15,23,42,.25);
+    border: 1px solid rgba(148,163,184,.08);
+    border-radius: 0.9rem;
+    padding: 0.8rem;
+    color: #e2e8f0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    height: fit-content;
+    position: sticky;
+    top: 80px;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+}
+
+.fb-sidebar h3 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.fb-sidebar-muted {
+    color: #94a3b8;
+    font-size: 0.8rem;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.4;
+}
+
+.fb-sidebar-card {
+    background: rgba(2,6,23,.25);
+    border: 1px solid rgba(148,163,184,.08);
+    border-radius: 0.7rem;
+    padding: 0.6rem;
+    margin-bottom: 0.6rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.fb-sidebar-card h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.fb-sidebar-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.35rem;
+    width: 100%;
+}
+
+.fb-sidebar-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    width: 100%;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.fb-sidebar-pill {
+    font-size: 0.65rem;
+    background: rgba(148,163,184,.15);
+    color: #e2e8f0;
+    border: 1px solid rgba(148,163,184,.3);
+    padding: 0.1rem 0.4rem;
+    border-radius: 999px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 1200px) {
+    .fb-page {
+        grid-template-columns: 1fr 280px;
+        gap: 0.8rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .fb-page {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .fb-page-sidebar {
+        order: -1;
+    }
+
+    .fb-sidebar {
+        position: relative;
+        top: 0;
+        max-height: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .fb-page {
+        gap: 0.8rem;
+    }
+
+    .fb-sidebar {
+        padding: 0.7rem;
+        border-radius: 0.8rem;
+    }
+
+    .fb-sidebar h3 {
+        font-size: 0.95rem;
+    }
+
+    .fb-sidebar-muted {
+        font-size: 0.75rem;
+    }
+
+    .fb-sidebar-card {
+        padding: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .fb-sidebar-card h4 {
+        font-size: 0.85rem;
+    }
+
+    .fb-sidebar-list li {
+        font-size: 0.8rem;
+    }
+
+    .fb-sidebar-pill {
+        font-size: 0.6rem;
+        padding: 0.08rem 0.35rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .fb-sidebar {
+        padding: 0.6rem;
+    }
+
+    .fb-sidebar h3 {
+        font-size: 0.9rem;
+    }
+
+    .fb-sidebar-card {
+        padding: 0.45rem;
+    }
+}
+

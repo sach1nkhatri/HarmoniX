@@ -1,0 +1,239 @@
+/* Profile Page Styles - Isolated with profile- prefix */
+.profile-page {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    padding: 1rem;
+    color: #e2e8f0;
+}
+
+.profile-hero {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.profile-hero h1 {
+    margin: 0 0 0.5rem 0;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #e2e8f0;
+}
+
+.profile-subtitle {
+    margin: 0;
+    font-size: 1rem;
+    color: #94a3b8;
+    opacity: 0.9;
+}
+
+.profile-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.profile-card {
+    background: rgba(15,23,42,.25);
+    border: 1px solid rgba(148,163,184,.08);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    color: #e2e8f0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.profile-card h2 {
+    margin: 0 0 1rem 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #e2e8f0;
+}
+
+.profile-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.profile-stat-item {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(2,6,23,.25);
+    border: 1px solid rgba(148,163,184,.08);
+    border-radius: 0.8rem;
+}
+
+.profile-stat-label {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    margin-bottom: 0.5rem;
+}
+
+.profile-stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #f59e0b;
+}
+
+.profile-settings {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.profile-setting-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.profile-setting-item label {
+    font-size: 0.9rem;
+    color: #e2e8f0;
+    font-weight: 600;
+}
+
+.profile-setting-item input {
+    background: rgba(2,6,23,.25);
+    border: 1px solid rgba(148,163,184,.25);
+    border-radius: 0.5rem;
+    padding: 0.6rem;
+    color: #e2e8f0;
+    font-size: 0.9rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.profile-setting-item input:focus {
+    outline: none;
+    border-color: rgba(59,130,246,.5);
+    box-shadow: 0 0 0 2px rgba(59,130,246,.1);
+}
+
+.profile-setting-item input::placeholder {
+    color: #64748b;
+}
+
+.profile-save-btn {
+    background: rgba(59,130,246,.15);
+    border: 1px solid rgba(59,130,246,.35);
+    color: #bae6fd;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.profile-save-btn:hover {
+    background: rgba(59,130,246,.25);
+    border-color: rgba(59,130,246,.5);
+}
+
+.profile-progress {
+    padding: 1rem 0;
+}
+
+.profile-progress-text {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #94a3b8;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 900px) {
+    .profile-page {
+        padding: 0.8rem;
+    }
+
+    .profile-hero h1 {
+        font-size: 1.75rem;
+    }
+
+    .profile-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .profile-content {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .profile-card {
+        padding: 1.25rem;
+    }
+
+    .profile-stats {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .profile-page {
+        padding: 0.6rem;
+    }
+
+    .profile-hero {
+        margin-bottom: 1.5rem;
+    }
+
+    .profile-hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .profile-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .profile-content {
+        gap: 1rem;
+    }
+
+    .profile-card {
+        padding: 1rem;
+        border-radius: 0.8rem;
+    }
+
+    .profile-card h2 {
+        font-size: 1.1rem;
+    }
+
+    .profile-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-stat-value {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-hero h1 {
+        font-size: 1.25rem;
+    }
+
+    .profile-card {
+        padding: 0.8rem;
+    }
+
+    .profile-setting-item input {
+        font-size: 0.85rem;
+        padding: 0.5rem;
+    }
+
+    .profile-save-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+}
+

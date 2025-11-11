@@ -1,0 +1,133 @@
+/* Practice Page Styles - Isolated with practice- prefix */
+.practice-page {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    padding: 1rem;
+    color: #e2e8f0;
+}
+
+.practice-hero {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.practice-hero h1 {
+    margin: 0 0 0.5rem 0;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #e2e8f0;
+}
+
+.practice-subtitle {
+    margin: 0;
+    font-size: 1rem;
+    color: #94a3b8;
+    opacity: 0.9;
+}
+
+.practice-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.practice-card {
+    background: rgba(15,23,42,.25);
+    border: 1px solid rgba(148,163,184,.08);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    color: #e2e8f0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.practice-card h2 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #e2e8f0;
+}
+
+.practice-card-desc {
+    margin: 0 0 1rem 0;
+    font-size: 0.9rem;
+    color: #94a3b8;
+    line-height: 1.5;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 900px) {
+    .practice-page {
+        padding: 0.8rem;
+    }
+
+    .practice-hero h1 {
+        font-size: 1.75rem;
+    }
+
+    .practice-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .practice-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .practice-card {
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .practice-page {
+        padding: 0.6rem;
+    }
+
+    .practice-hero {
+        margin-bottom: 1.5rem;
+    }
+
+    .practice-hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .practice-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .practice-grid {
+        gap: 1rem;
+    }
+
+    .practice-card {
+        padding: 1rem;
+        border-radius: 0.8rem;
+    }
+
+    .practice-card h2 {
+        font-size: 1.1rem;
+    }
+
+    .practice-card-desc {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .practice-hero h1 {
+        font-size: 1.25rem;
+    }
+
+    .practice-card {
+        padding: 0.8rem;
+    }
+}
+
