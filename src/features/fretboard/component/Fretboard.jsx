@@ -5,7 +5,8 @@ import ScalePlayer from "./ScalePlayer";
 import CagedOverlay from "./CagedOverlay";
 import PromptBanner from "./PromptBanner";
 
-const TUNING = ["E4", "B3", "G3", "D3", "A2", "E2"];
+const GUITAR_TUNING = ["E4", "B3", "G3", "D3", "A2", "E2"]; // High to low (as displayed)
+const BASS_4_TUNING = ["G3", "D3", "A2", "E2"]; // Standard 4-string bass (high to low, hiding B and E from guitar)
 const FRETS = 24;
 
 const FRET_MARKERS = {
@@ -81,6 +82,8 @@ export default function Fretboard() {
     const [scaleId, setScaleId] = useState("major");
     const [positionId, setPositionId] = useState("off");
     const [mode, setMode] = useState("scale"); // "scale" | "caged" | "chord"
+    const [instrument, setInstrument] = useState("guitar"); // "guitar" | "bass4" | "bass5"
+    const [bass5Tuning, setBass5Tuning] = useState("B1"); // Custom tuning for 5-string bass
     const [tooltip, setTooltip] = useState(null);
     const audioCtxRef = useRef(null);
 
@@ -99,8 +102,21 @@ export default function Fretboard() {
         return map;
     }, [scaleNotes]);
 
+    // Calculate current tuning based on instrument selection
+    const currentTuning = useMemo(() => {
+        if (instrument === "guitar") {
+            return GUITAR_TUNING;
+        } else if (instrument === "bass4") {
+            return BASS_4_TUNING;
+        } else if (instrument === "bass5") {
+            // 5-string bass: standard 4 strings + custom low string (displayed at bottom)
+            return [...BASS_4_TUNING, bass5Tuning];
+        }
+        return GUITAR_TUNING;
+    }, [instrument, bass5Tuning]);
+
     const board = useMemo(() => {
-        return TUNING.map((openNote) => {
+        return currentTuning.map((openNote) => {
             const stringNotes = [];
             for (let fret = 0; fret <= FRETS; fret++) {
                 const interval = Interval.fromSemitones(fret);
@@ -110,7 +126,7 @@ export default function Fretboard() {
             }
             return stringNotes;
         });
-    }, []);
+    }, [currentTuning]);
 
     function playNote(noteName) {
         const freq = Note.freq(noteName);
@@ -178,6 +194,29 @@ export default function Fretboard() {
                             <option value="caged">CAGED Mode</option>
                         </select>
                     </div>
+                    <div className="fb-control">
+                        <label>Instrument</label>
+                        <select value={instrument} onChange={(e) => setInstrument(e.target.value)}>
+                            <option value="guitar">Guitar (6-string)</option>
+                            <option value="bass4">Bass (4-string)</option>
+                            <option value="bass5">Bass (5-string)</option>
+                        </select>
+                    </div>
+                    {instrument === "bass5" && (
+                        <div className="fb-control">
+                            <label>5th String Tuning</label>
+                            <select value={bass5Tuning} onChange={(e) => setBass5Tuning(e.target.value)}>
+                                <option value="B1">B1 (Standard)</option>
+                                <option value="C2">C2 (Tenor)</option>
+                                <option value="A1">A1</option>
+                                <option value="Bb1">Bb1</option>
+                                <option value="D2">D2</option>
+                                <option value="Eb2">Eb2</option>
+                                <option value="F2">F2</option>
+                                <option value="G2">G2</option>
+                            </select>
+                        </div>
+                    )}
                 </div>
 
                 <div className="fb-theory">
@@ -225,7 +264,7 @@ export default function Fretboard() {
                 <div className="fb-board">
                     {board.map((stringNotes, stringIdx) => (
                         <div key={stringIdx} className="fb-string-row">
-                            <div className="fb-string-label">{TUNING[stringIdx].replace(/\d/, "")}</div>
+                            <div className="fb-string-label">{currentTuning[stringIdx].replace(/\d/, "")}</div>
                             {stringNotes.map(({ fret, pc, note }) => {
                                 const inScale = pc in degreeMap;
                                 const degreeIdx = degreeMap[pc];
