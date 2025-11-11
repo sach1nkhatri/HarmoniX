@@ -1,7 +1,7 @@
-// src/App.js
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate, Link } from "react-router-dom";
 import "./App.css";
+import logoImg from "./assets/images/logo.png";
 
 import DashboardPage from "./features/dashboard/page/DashboardPage";
 import FretboardPage from "./features/fretboard/page/FretboardPage";
@@ -17,7 +17,7 @@ function App() {
             <div className="hx-shell">
                 <header className="hx-topbar">
                     <div className="hx-brand">
-                        <span className="hx-logo">H</span>
+                        <img src={logoImg} alt="HarmoniX logo" className="hx-logo" />
                         <div className="hx-title">
                             <div className="hx-name">HarmoniX Academy</div>
                             <div className="hx-tagline">Master the neck, master the music.</div>
@@ -49,7 +49,7 @@ function App() {
                 <footer className="hx-footer">
                     <div className="hx-footer-grid">
                         <div className="hx-footer-brand">
-                            <div className="hx-logo">H</div>
+                            <img src={logoImg} alt="HarmoniX logo" className="hx-logo" />
                             <div>
                                 <div className="hx-name">HarmoniX Academy</div>
                                 <div className="hx-tagline">Master the neck, master the music.</div>
@@ -89,7 +89,7 @@ function App() {
                         </div>
                     </div>
                     <div className="hx-foot-bottom">
-                        © 2025 | HArminiX | Built by Sachin Khatri. All Rights Reserved.
+                        © 2025 | HarmoniX Academy | Built by Sachin Khatri. All Rights Reserved.
                     </div>
                 </footer>
             </div>
