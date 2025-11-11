@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import "../css/profile.css";
 
 export default function ProfilePage() {
+    const [showNotice, setShowNotice] = useState(false);
+    const [displayName, setDisplayName] = useState("");
+    const [email, setEmail] = useState("");
+
+    function handleSave(e) {
+        e.preventDefault();
+        setShowNotice(true);
+    }
+
     return (
         <div className="profile-page">
             <div className="profile-hero">
@@ -31,13 +40,23 @@ export default function ProfilePage() {
                     <div className="profile-settings">
                         <div className="profile-setting-item">
                             <label>Display Name</label>
-                            <input type="text" placeholder="Enter your name" />
+                            <input
+                                type="text"
+                                placeholder="Enter your name"
+                                value={displayName}
+                                onChange={(e) => setDisplayName(e.target.value)}
+                            />
                         </div>
                         <div className="profile-setting-item">
                             <label>Email</label>
-                            <input type="email" placeholder="your.email@example.com" />
+                            <input
+                                type="email"
+                                placeholder="your.email@example.com"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
                         </div>
-                        <button className="profile-save-btn">Save Changes</button>
+                        <button className="profile-save-btn" onClick={handleSave}>Save Changes</button>
                     </div>
                 </div>
                 <div className="profile-card">
@@ -47,6 +66,19 @@ export default function ProfilePage() {
                     </div>
                 </div>
             </div>
+            {showNotice && (
+                <div className="profile-modal-overlay" onClick={() => setShowNotice(false)}>
+                    <div className="profile-modal" onClick={(e) => e.stopPropagation()}>
+                        <div className="profile-modal-icon">🎉</div>
+                        <h3 className="profile-modal-title">Thanks for the love!</h3>
+                        <p className="profile-modal-text">
+                            Our backend is currently under development. Profile updates like display name and email
+                            will be coming soon. Stay tuned — and thanks for your support!
+                        </p>
+                        <button className="profile-modal-btn" onClick={() => setShowNotice(false)}>Got it</button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
